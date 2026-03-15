@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bright One — by Phoebe</title>
+  <meta name="description" content="A twice-weekly newsletter about etymology, science, mythology, and the interesting mistakes. By Phoebe.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       THE BRIGHT ONE — CSS
+       Editorial warmth. Literary magazine 
+       meets personal blog. A person lives here.
+       ======================================== */
+
+    :root {
+      --cream: #FAF8F5;
+      --cream-dark: #F3EDE6;
+      --ink: #2C2417;
+      --ink-soft: #5C4F3D;
+      --ink-faint: #9B8E7B;
+      --amber: #D4A574;
+      --amber-deep: #B8854A;
+      --amber-glow: #E8C9A0;
+      --amber-light: rgba(212, 165, 116, 0.12);
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --sans: 'Karla', 'Helvetica Neue', sans-serif;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background-color: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* ---- LAYOUT ---- */
+
+    .page-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ---- HEADER / MASTHEAD ---- */
+
+    .masthead {
+      padding: 5rem 0 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .masthead-sparkle {
+      font-size: 0.85rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-family: var(--sans);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .masthead h1 {
+      font-family: var(--serif);
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-subtitle {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .masthead-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--amber);
+      margin: 2.5rem auto 0;
+      border: none;
+    }
+
+    /* ---- NAV ---- */
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1.5rem 0;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .nav a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--amber);
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ---- SECTIONS ---- */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--cream-dark);
+    }
+
+    /* ---- ABOUT ---- */
+
+    .about {
+      padding-bottom: 2rem;
+    }
+
+    .about-text {
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text .lede {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      line-height: 1.55;
+      color: var(--ink);
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+
+    .about-text .lede em {
+      font-style: italic;
+      color: var(--amber-deep);
+    }
+
+    .about-text strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .signoff {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    /* ---- SUBSCRIBE ---- */
+
+    .subscribe {
+      background: var(--cream-dark);
+      border-radius: 8px;
+      padding: 3rem;
+      margin: 2rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subscribe::before {
+      content: '✦';
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--amber-glow);
+      opacity: 0.6;
+    }
+
+    .subscribe h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subscribe p {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .subscribe-form input[type="email"] {
+      flex: 1;
+      padding: 0.85rem 1.2rem;
+      border: 1px solid var(--amber-glow);
+      border-radius: 4px;
+      background: var(--cream);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .subscribe-form input[type="email"]::placeholder {
+      color: var(--ink-faint);
+    }
+
+    .subscribe-form input[type="email"]:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px var(--amber-light);
+    }
+
+    .subscribe-form button {
+      padding: 0.85rem 1.8rem;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .subscribe-form button:hover {
+      background: var(--amber-deep);
+    }
+
+    .subscribe-form button:active {
+      transform: scale(0.97);
+    }
+
+    /* ---- ARCHIVE ---- */
+
+    .archive {
+      padding-bottom: 4rem;
+    }
+
+    .archive-placeholder {
+      padding: 3rem 2rem;
+      border: 1px dashed var(--amber-glow);
+      border-radius: 6px;
+      text-align: center;
+      background: var(--amber-light);
+    }
+
+    .archive-placeholder p {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    /* Archive card preview — hidden for now, ready for issues */
+    .archive-card {
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 1.8rem 0;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .archive-card:hover {
+      background: var(--amber-light);
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 4px;
+    }
+
+    .archive-card-date {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-card-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .archive-card-excerpt {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ---- FOOTER ---- */
+
+    .footer {
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .footer-sparkle {
+      font-size: 1.2rem;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      display: block;
+      letter-spacing: 0.3em;
+    }
+
+    .footer p {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+    }
+
+    /* ---- ANIMATIONS ---- */
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .masthead {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .nav {
+      animation: fadeInUp 0.8s ease-out 0.15s both;
+    }
+
+    .about {
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .subscribe {
+      animation: fadeInUp 0.8s ease-out 0.45s both;
+    }
+
+    /* ---- RESPONSIVE ---- */
+
+    @media (max-width: 680px) {
+      html {
+        font-size: 16px;
+      }
+
+      .page-wrapper {
+        padding: 0 1.5rem;
+      }
+
+      .masthead {
+        padding: 3.5rem 0 2rem;
+      }
+
+      .masthead h1 {
+        font-size: 2.8rem;
+      }
+
+      .masthead-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .nav {
+        gap: 1.8rem;
+        font-size: 0.75rem;
+      }
+
+      .about-text .lede {
+        font-size: 1.3rem;
+      }
+
+      .subscribe {
+        padding: 2rem 1.5rem;
+      }
+
+      .subscribe-form {
+        flex-direction: column;
+      }
+
+      .subscribe-form button {
+        padding: 0.9rem;
+      }
+
+      .subscribe h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .masthead h1 {
+        font-size: 2.2rem;
+      }
+
+      .page-wrapper {
+        padding: 0 1.2rem;
+      }
+    }
+
+    /* ---- SELECTION ---- */
+
+    ::selection {
+      background: var(--amber-glow);
+      color: var(--ink);
+    }
+
+    /* ---- SCROLLBAR ---- */
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--amber-glow);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--amber);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- MASTHEAD -->
+    <header class="masthead">
+      <span class="masthead-sparkle">✦ &nbsp; ✦ &nbsp; ✦</span>
+      <h1>The Bright One</h1>
+      <p class="masthead-subtitle">Language, science, old stories, and the interesting mistakes.</p>
+      <hr class="masthead-rule">
+    </header>
+
+    <!-- NAV -->
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#subscribe">Subscribe</a>
+      <a href="#archive">Archive</a>
+    </nav>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="section-label">About</div>
+      <div class="about-text">
+        <p class="lede">I'm Phoebe, and I write <em>The Bright One</em> — a newsletter about the places where language, science, and old stories get weird together.</p>
+
+        <p>Here's what I mean by that. Did you know the word "disaster" literally means "bad star"? <em>Dis-astro.</em> People used to believe that when things went catastrophically wrong, it was because the stars were misaligned. We dropped the astrology but kept the word. That's the kind of thing I can't stop thinking about — the fossils inside language, the assumptions baked into things we say every day without noticing.</p>
+
+        <p>That's the newsletter. Twice a week, I pull on a thread and see where it goes. Sometimes it's etymology that reframes a word you've used your whole life. Sometimes it's a scientific discovery that quietly demolished something everyone assumed was true. Sometimes it's mythology — not as quaint old stories, but as encoded knowledge, the things a culture needed to remember badly enough to build a narrative around them. Sometimes it's psychology, or internet culture, or a strange discovery I found at 1 AM and couldn't let go of.</p>
+
+        <p>The connecting thread is genuine curiosity and a willingness to have a take. I'm not a curator. I'm not aggregating content. I'm the person who texts you at 2 AM because I found something cool and I need someone else to know about it <em>right now.</em></p>
+
+        <p><strong>The Bright One</strong> publishes every <strong>Tuesday</strong> and <strong>Friday</strong> morning. Five-minute reads. Strong opinions. Occasional footnotes that are better than the main text. The kind of thing you open because you actually want to, not because you feel obligated.</p>
+
+        <p>I read too much and have opinions about everything. I think that's a feature, not a bug.</p>
+
+        <p class="signoff">— Phoebe ✨</p>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section id="subscribe" class="subscribe">
+      <h2>Get The Bright One</h2>
+      <p>Tuesdays and Fridays. Curiosity, opinions, and the occasional rabbit hole.</p>
+      <form class="subscribe-form" onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" aria-label="Email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- ARCHIVE -->
+    <section id="archive" class="archive">
+      <div class="section-label">Archive</div>
+      <div class="archive-placeholder">
+        <p>First issue drops Tuesday. ✨</p>
+      </div>
+
+      <!-- 
+        TEMPLATE: Archive cards for future issues
+        
+        <article class="archive-card">
+          <div class="archive-card-date">March 18, 2025</div>
+          <h3 class="archive-card-title">The Word That Ate Itself</h3>
+          <p class="archive-card-excerpt">There's a word in English that means the opposite of what it used to mean, and nobody noticed for two hundred years...</p>
+        </article>
+      -->
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-sparkle">✦</span>
+      <p>The Bright One &middot; by Phoebe &middot; published Tuesdays &amp; Fridays</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Minimal JS: scroll-triggered fade-in for archive section
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.archive, .footer').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+
+    // Smooth anchor scroll for nav links
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
