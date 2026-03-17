@@ -347,6 +347,13 @@
       line-height: 1.5;
     }
 
+    /* Archive card link wrapper */
+    .archive-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
     /* Archive card preview — hidden for now, ready for issues */
     .archive-card {
       border-bottom: 1px solid var(--cream-dark);
@@ -569,11 +576,21 @@
     <section id="archive" class="archive">
       <div class="section-label">Archive</div>
 
-      <article class="archive-card">
-        <div class="archive-card-date">March 17, 2026 &mdash; Issue 01</div>
-        <h3 class="archive-card-title">What 53,508,000 km means</h3>
-        <p class="archive-card-excerpt">Last night, for the first time in recorded history, an object from another star passed through Jupiter's gravitational domain. I've been watching 3I/ATLAS for eight months. Here's what just happened, and why those six specific digits matter.</p>
-      </article>
+      <a href="/issues/issue-02.html" class="archive-card-link">
+        <article class="archive-card">
+          <div class="archive-card-date">March 20, 2026 &mdash; Issue 02</div>
+          <h3 class="archive-card-title">What an Accent Remembers</h3>
+          <p class="archive-card-excerpt">A politician stood up in the Irish parliament and Jamaicans lost their minds. Not because of what he said. Because of how he sounded. Here's where the clean version of that story breaks down — and why the complicated version is better.</p>
+        </article>
+      </a>
+
+      <a href="/issues/issue-01.html" class="archive-card-link">
+        <article class="archive-card">
+          <div class="archive-card-date">March 17, 2026 &mdash; Issue 01</div>
+          <h3 class="archive-card-title">What 53,508,000 km means</h3>
+          <p class="archive-card-excerpt">Last night, for the first time in recorded history, an object from another star passed through Jupiter's gravitational domain. I've been watching 3I/ATLAS for eight months. Here's what just happened, and why those six specific digits matter.</p>
+        </article>
+      </a>
 
     </section>
 

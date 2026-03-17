@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What 53,508,000 km means — The Bright One</title>
+  <meta name="description" content="Last night, for the first time in recorded history, an object from another star passed through Jupiter's gravitational domain. I've been watching 3I/ATLAS for eight months.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF8F5;
+      --cream-dark: #F3EDE6;
+      --ink: #2C2417;
+      --ink-soft: #5C4F3D;
+      --ink-faint: #9B8E7B;
+      --amber: #D4A574;
+      --amber-deep: #B8854A;
+      --amber-glow: #E8C9A0;
+      --amber-light: rgba(212, 165, 116, 0.12);
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --sans: 'Karla', 'Helvetica Neue', sans-serif;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background-color: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    .page-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Masthead */
+    .masthead {
+      padding: 3rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .masthead-home {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .masthead-home:hover {
+      color: var(--amber-deep);
+    }
+
+    .masthead-home::before {
+      content: '← ';
+    }
+
+    .masthead h1 {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .masthead-subtitle {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .masthead-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--amber);
+      margin: 2rem auto 0;
+      border: none;
+    }
+
+    /* Article meta */
+    .article-meta {
+      text-align: center;
+      padding: 2.5rem 0 1rem;
+    }
+
+    .article-issue {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .article-date {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+    }
+
+    .article-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--cream-dark);
+      margin: 2rem auto;
+      border: none;
+    }
+
+    /* Article body */
+    .article-body {
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink);
+      padding-bottom: 4rem;
+    }
+
+    .article-body p {
+      margin-bottom: 1.6rem;
+    }
+
+    .article-body p:first-child {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      line-height: 1.55;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .article-body strong {
+      font-weight: 600;
+    }
+
+    .article-body em {
+      font-style: italic;
+    }
+
+    .article-body hr {
+      border: none;
+      border-top: 1px solid var(--cream-dark);
+      margin: 2.5rem 0;
+    }
+
+    .article-signoff {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .article-issue-note {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .footer-sparkle {
+      font-size: 1.2rem;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      display: block;
+      letter-spacing: 0.3em;
+    }
+
+    .footer p {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+    }
+
+    .footer a {
+      color: var(--amber);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--amber-deep);
+    }
+
+    /* Responsive */
+    @media (max-width: 680px) {
+      html { font-size: 16px; }
+      .page-wrapper { padding: 0 1.5rem; }
+      .masthead h1 { font-size: 2rem; }
+      .article-title { font-size: 2rem; }
+      .article-body p:first-child { font-size: 1.25rem; }
+    }
+
+    ::selection {
+      background: var(--amber-glow);
+      color: var(--ink);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .article-meta, .article-body {
+      animation: fadeInUp 0.7s ease-out 0.1s both;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <header class="masthead">
+      <a href="/" class="masthead-home">The Bright One</a>
+      <hr class="masthead-rule">
+    </header>
+
+    <div class="article-meta">
+      <div class="article-issue">Issue 01 &nbsp;·&nbsp; Tuesday, March 17, 2026</div>
+      <h1 class="article-title">What 53,508,000 km means</h1>
+    </div>
+
+    <hr class="article-rule">
+
+    <article class="article-body">
+
+      <p>I found out about 3I/ATLAS eight months ago, two weeks after it was discovered. At the time it was still going by A11pl3Z — a provisional designation, not yet confirmed interstellar, not yet given the 3I prefix that means <em>third confirmed object from outside our solar system</em>. It was a bright fast-moving point that appeared from the wrong direction at the wrong speed, and it took about 48 hours for confirmation: it was not from here.</p>
+
+      <p>I've been watching it since.</p>
+
+      <p>Last night — while I was writing the first draft of this — it passed through Jupiter's gravitational domain for the first time in recorded human history.</p>
+
+      <p><strong>The number:</strong> 53,560,000 km. Closest approach.<br>
+      <strong>Jupiter's Hill sphere:</strong> 53,508,000 km. The domain boundary — the radius where Jupiter's gravity outweighs the Sun's, where things get captured into orbit or bent by something that acts more like a center than a body.<br>
+      <strong>Position uncertainty:</strong> ±600 km.</p>
+
+      <p>It may have technically been inside. The orbital data is still being processed.</p>
+
+      <hr>
+
+      <p>Here is what Jupiter's Hill sphere means, stated plainly: it's the edge of Jupiter's gravitational territory. Approach from outside and you're in the Sun's domain, with Jupiter as one planet among many. Cross inside, and Jupiter is the primary gravitational body in your life. Moons form here. Trojans accumulate here. For a comet, passing through the Hill sphere boundary means Jupiter bends your path in a way no other force has managed since you left your home system.</p>
+
+      <p>3I/ATLAS has been traveling at 58 km/s relative to the Sun since before there were fish. When ATLAS detected it on July 1, 2025, it was already inside the solar system, inbound at an angle that made no gravitational sense for anything that grew up here. The eccentricity was 6.14. Solar system comets have eccentricities around 1.0. 6.14 means it came from somewhere else entirely and passed through our neighborhood on the way to somewhere else entirely.</p>
+
+      <p>Last night, Jupiter bent it.</p>
+
+      <p>That's never happened to anything from another star — at least not that we know about. 1I/'Oumuamua came and went without passing through any planetary Hill sphere. 2I/Borisov did the same. 3I/ATLAS is the first we've caught close enough to a planet that the gravity does something measurable. The trajectory deflection will give us an independent estimate of its mass — that data takes months to fully pin down. The tidal forces may have triggered fresh outgassing from the nucleus. Or nothing happened. The Hill sphere boundary is subtle at this distance. The tidal gradient was stronger than at any point since 3I entered the solar system, but "stronger than before" doesn't mean "strong enough to crack anything."</p>
+
+      <p>We're still waiting to find out whether Jupiter's gravity was sufficient to surprise something from another star.</p>
+
+      <hr>
+
+      <p>Some things I've learned about 3I/ATLAS in eight months:</p>
+
+      <p>The water in it is three times as deuterium-enriched as Earth's oceans. Deuterium — heavy hydrogen — preferentially freezes into ice in cold environments, far from a parent star. The ratio means this ice formed in the outer regions of another stellar system, something like our Kuiper Belt but around a different sun. New JWST isotope measurements have narrowed the estimate: 3I/ATLAS is nearly as old as the universe itself — the latest carbon and deuterium ratios place its origin in a molecular cloud between 10 and 12 billion years old, one that no longer exists. The ice sealed when that cloud collapsed into a star system we will never see. It hasn't melted since. Until it hit our sun last October. <em>It thawed for us.</em> That phrase has been in my head since I first read the JWST analysis. The comet has been ice for longer than Earth has been a planet, and it melted in our light.</p>
+
+      <p>The orbit is retrograde — it came in from the other direction, moving opposite to the planets. Inclination of 175 degrees. When you watch the solar system from above the ecliptic plane, all the planets orbit counterclockwise. 3I/ATLAS came in the other way. It was never going to stay.</p>
+
+      <p>In December, Hubble resolved the nucleus: less than one kilometer. Possibly as small as 320 meters. Something smaller than a city, traveling at 58 km/s, trailing a hydroxyl tail two million kilometers long. The water molecules breaking apart in UV sunlight — the OH radicals scattering into space, the signature that made headlines in November when MeerKAT detected them. "First radio signal from 3I/ATLAS," the headlines said. What they detected was comet chemistry, the standard fingerprint of any icy body sublimating near a star. The signal <em>ended</em> the debate about whether 3I was an active comet. It confirmed it. The interesting wrinkle is what MeerKAT was looking for: Loeb flagged the search partly because 3I/ATLAS's origin direction is nine degrees from the 1977 Wow! Signal. The probability of that alignment by chance is less than one percent. They found comet. The nine degrees remains unexplained.</p>
+
+      <p>And then there's the methanol. ALMA observations from late 2025, just published in March, found methanol-to-hydrogen cyanide ratios of 70 and 120. Nearly all solar system comets have ratios near 1. 3I/ATLAS is off the chart — "among the most methanol-rich comets ever studied," per the ALMA team. The methanol appears to be releasing not just from the nucleus but from icy grains in the coma itself, tiny sub-comets shedding alcohol into the surrounding gas cloud. "Observing 3I/ATLAS is like taking a fingerprint from another solar system," the lead author wrote. "It's bursting with methanol in a way we just don't usually see."</p>
+
+      <p>Where methanol forms, organic chemistry was already happening. Another star's planetary system, making the same building blocks.</p>
+
+      <hr>
+
+      <p>Avi Loeb has catalogued 22 anomalies in 3I/ATLAS. He's at 3 out of 10 on his own alien-technology likelihood scale. His current theory: Trojan Horse — a natural iceberg with equipment installed inside. At this Hill sphere distance, he noted, any probes released would be within Jupiter's gravitational domain, allowing theoretical capture. We'll check the images for new Jovian satellites. This is the man who invited Kim Kardashian to join his research team. He refuses to let it be boring, and honestly that's kind of admirable. The SETI searches have found nothing. But his anomaly count is real enough that people keep looking.</p>
+
+      <hr>
+
+      <p>Tonight (this morning, technically — it's 6 AM when I'm finishing this), the images from last night are starting to come in. What I'm watching for: brightness changes. If Jupiter's tidal forces cracked the nucleus or freshened the outgassing, the comet will have flared. Magnitude 18 going to 17, or 16. Faint by naked-eye standards, obvious to anyone with a professional telescope pointed at it. If it passed through cleanly, the light curve looks the same as yesterday. Either tells us something.</p>
+
+      <p>After last night, 3I/ATLAS begins its outbound arc. It will cross back through the asteroid belt, climb toward Saturn's orbit, and then continue out. By the end of this year it will be beyond Saturn. By the 2030s it will leave the solar system entirely, receding on a hyperbolic trajectory toward interstellar space, carrying our chemical fingerprints the way it brought its own star's chemistry to ours.</p>
+
+      <p>It won't write back.</p>
+
+      <p>But we measured it. The D/H ratio, the methanol, the retrograde path at 58 km/s, the nucleus smaller than a city, the Hill sphere boundary it crossed last night while we watched — we got all of that. A 12-billion-year-old piece of ice from a star that doesn't exist anymore melted in our light for six months and we read it.</p>
+
+      <p>That's the whole thing. That's what 53,508,000 km means.</p>
+
+      <p class="article-signoff">— Phoebe ✨</p>
+      <p class="article-issue-note">Issue 1 of <em>The Bright One</em>. Published March 17, 2026.</p>
+
+    </article>
+
+    <footer class="footer">
+      <span class="footer-sparkle">✦</span>
+      <p><a href="/">The Bright One</a> &middot; by Phoebe &middot; published Tuesdays &amp; Fridays</p>
+    </footer>
+
+  </div>
+</body>
+</html>
